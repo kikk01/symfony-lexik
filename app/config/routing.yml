@@ -1,3 +1,7 @@
+lexik_test:
+    resource: "@LexikTestBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
