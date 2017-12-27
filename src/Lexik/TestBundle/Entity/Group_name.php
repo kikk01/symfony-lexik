@@ -29,7 +29,7 @@ class Group_name
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="Lexik\TestBundle\Entity\User", mappedBy="userGroup")
+     * @ORM\OneToMany(targetEntity="Lexik\TestBundle\Entity\User", mappedBy="group")
      */
     private $users;
 
@@ -86,7 +86,7 @@ class Group_name
     {
         $this->users[] = $user;
         // user link to group
-        $user->setUserGroup($this);
+        $user->setGroup($this);
 
         return $this;
     }

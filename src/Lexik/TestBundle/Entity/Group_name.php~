@@ -29,7 +29,7 @@ class Group_name
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="Lexik\TestBundle\Entity\User", mappedBy="userGroup")
+     * @ORM\OneToMany(targetEntity="Lexik\TestBundle\Entity\User", mappedBy="group")
      */
     private $users;
 
@@ -67,5 +67,47 @@ class Group_name
     {
         return $this->name;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add user
+     *
+     * @param \Lexik\TestBundle\Entity\User $user
+     *
+     * @return Group_name
+     */
+    public function addUser(\Lexik\TestBundle\Entity\User $user)
+    {
+        $this->users[] = $user;
+        // user link to group
+        $user->setGroup($this);
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \Lexik\TestBundle\Entity\User $user
+     */
+    public function removeUser(\Lexik\TestBundle\Entity\User $user)
+    {
+        $this->users->removeElement($user);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+}
