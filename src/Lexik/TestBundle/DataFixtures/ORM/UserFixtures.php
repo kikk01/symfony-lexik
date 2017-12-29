@@ -3,10 +3,8 @@
 namespace Lexik\TestBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
-use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Lexik\TestBundle\Entity\User;
-use Lexik\TestBundle\DataFixtures\ORM\GroupFixtures;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 
 

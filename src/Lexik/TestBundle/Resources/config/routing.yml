@@ -1,3 +1,3 @@
-lexik_test_homepage:
-    path:     /
-    defaults: { _controller: LexikTestBundle:Default:index }
+lexik_test_home:
+    path:     /test
+    defaults: { _controller: LexikTestBundle:User:index }

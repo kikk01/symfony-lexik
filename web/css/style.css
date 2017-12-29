@@ -1,0 +1,85 @@
+body
+{
+    background-color: #f3f3f3
+}
+h1
+{
+    text-align: center;
+}
+th
+{
+    background-color: orange;
+}
+tr:nth-child(odd)
+{
+    background-color: gray;
+}
+th, td
+{
+    padding: 5px;
+    text-align: center;
+    width: 14%;
+    height: 45px;
+}
+
+table
+{
+    margin: 50px 0 50px;
+    width: 100%;
+}
+button, .button-orange
+{
+    background-color: orange;
+    color: black;
+}
+.btn-form
+{
+    border-radius: 0;
+    border: 1px solid #cccccc
+}
+.btn-form:hover, button:hover, .button-orange:hover
+{
+    background-color: #c6631f;
+}
+.popUp
+{
+    height: 50px;
+}
+#popUp
+{
+    width: 400px;
+    padding: 5px;
+    text-align: center;
+    background-color: white;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+.border-orange
+{
+    border: 2px solid orange;
+}
+.border-green
+{
+    border: 2px solid green;
+}
+.border-red
+{
+    border: 2px solid red;
+}
+#bad-date
+{
+    color: red;
+    display: none;
+}
+.modal-header
+{
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    background-color: orange;
+    text-align: center;
+    border-bottom: none;
+}
+.btn-details
+{
+    width: 91px;
+}

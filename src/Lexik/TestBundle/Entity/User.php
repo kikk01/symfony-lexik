@@ -55,6 +55,11 @@ class User
      */
     private $group;
 
+    public function getAge()
+    {
+        $dateInterval = $this->birthDate->diff(new \DateTime());
+        return $dateInterval->y;
+    }
 
     /**
      * Get id

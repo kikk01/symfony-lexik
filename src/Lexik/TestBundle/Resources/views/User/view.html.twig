@@ -1,0 +1,54 @@
+
+{% extends "LexikTestBundle::layout.html.twig" %}
+
+{% block body %}
+    <table>
+        <tbody>
+            <tr>
+                <th>Groupe</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Email</th>
+                <th>Plus d'infos</th>
+                <th>Supprimer utilisateur</th>
+            </tr>
+            {% for user in listUsers %}
+            
+            <tr>
+                <td>{{ user.group.name }}</td>
+                <td>{{ user.surname }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>
+                    <button class="btn btn-details" data-toggle="modal" href="#{{ loop.index }}">détails</button>
+                    <div id="{{ loop.index }}" class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <p>
+                                        {{ user.surname }} a {{ user.getAge() }} ans
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <button class="btn btn-details" data-toggle="modal" href="#sup{{ loop.index }}">Supprimer</button>
+                    <div id="sup{{ loop.index }}" class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    kkkkk
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+
