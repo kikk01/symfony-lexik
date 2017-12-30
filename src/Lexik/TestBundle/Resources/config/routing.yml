@@ -1,3 +1,10 @@
 lexik_test_home:
-    path:     /test
+    path:   /test
     defaults: { _controller: LexikTestBundle:User:index }
+
+lexik_test_delete:
+    path:   /delete/{id}
+    defaults:
+        _controller: LexikTestBundle:User:delete
+    requirements:
+        id: \d+

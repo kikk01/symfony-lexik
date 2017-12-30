@@ -2,6 +2,10 @@
 {% extends "LexikTestBundle::layout.html.twig" %}
 
 {% block body %}
+    <form method="post" action="{{ path('lexik_test_home') }}">
+        <input type="text" name="searchClient" placeholder="filtrer par groupe ou par nom d'utilisateur">
+        <input type="submit" value="valider">
+    </form>
     <table>
         <tbody>
             <tr>
@@ -39,8 +43,13 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-body">
-                                    kkkkk
-                                </div>
+                                    <p>Etes-vous sur de vouloir supprimer {{ user.surname }}</p>
+                                    <form action="{{ path('lexik_test_delete', {'id': user.id }) }}" method="post">
+                                        <input type="submit" class="btn btn-orange" value="Supprimer" />
+                                        <button class="btn" data-dimiss="modal">Annuler</button>
+                                        {{ form_rest(form) }}
+                                    </form>
+                                </div> 
                             </div>
                         </div>
                     </div>

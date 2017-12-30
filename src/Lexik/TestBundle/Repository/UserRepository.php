@@ -10,4 +10,21 @@ namespace Lexik\TestBundle\Repository;
  */
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getClientSearch($clientSearch)
+    {
+        
+        $qb = $this
+            ->createQueryBuilder('u')
+            ->innerJoin('u.group', 'g')
+            ->addSelect('g')
+            ->where('g.name = :name')
+            ->orWhere('u.surname = :name')
+            ->setParameter(':name', $clientSearch)
+        ;
+        return $qb
+            ->getQuery()
+            ->getResult()
+        ;
+
+    }
 }
