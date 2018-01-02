@@ -2,10 +2,34 @@
 {% extends "LexikTestBundle::layout.html.twig" %}
 
 {% block body %}
+{# search bar and button above table #}
     <form method="post" action="{{ path('lexik_test_home') }}">
-        <input type="text" name="searchClient" placeholder="filtrer par groupe ou par nom d'utilisateur">
-        <input type="submit" value="valider">
+        <div class="input-group">
+            <input type="text" name="searchClient" placeholder="filtrer par groupe ou par nom d'utilisateur" class="form-control affiner-recherche">
+            <span class="input-group-btn">
+                <input type="submit" class="btn button-orange" value="valider">
+                <a href="{{ path('lexik_test_home') }}" class="btn button-orange">
+                    Annuler la recherche
+                </a>
+                <button data-toggle="modal" href="#addUser" class="btn button-orange" type="button">Ajouter un utilisateur</button>
+            </span>
+        </div>
     </form>
+
+    {# Modal create new user #}
+    <div class="modal fade" id="addUser">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"></button>
+                    <h2 class="modal-title">Ajouter un utilisateur</h2>    
+                </div>
+                <div class="modal-body">
+                    {{ include('LexikTestBundle:User:form.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
     <table>
         <tbody>
             <tr>
@@ -45,9 +69,9 @@
                                 <div class="modal-body">
                                     <p>Etes-vous sur de vouloir supprimer {{ user.surname }}</p>
                                     <form action="{{ path('lexik_test_delete', {'id': user.id }) }}" method="post">
-                                        <input type="submit" class="btn btn-orange" value="Supprimer" />
-                                        <button class="btn" data-dimiss="modal">Annuler</button>
-                                        {{ form_rest(form) }}
+                                        <input type="submit" class="btn button-orange" value="Supprimer" />
+                                        <button class="btn" data-dismiss="modal">Annuler</button>
+                                        {{ form_rest(formClientSearch) }}
                                     </form>
                                 </div> 
                             </div>

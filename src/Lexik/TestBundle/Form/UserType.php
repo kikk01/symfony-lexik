@@ -7,7 +7,9 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class UserType extends AbstractType
 {
@@ -17,12 +19,19 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('surname',     TextType::class)
-            ->add('name',        TextType::class)
-            ->add('email',       EmailType::class)
-            ->add('birthDate',   DateType::class)
-            ->add('group',       TextType::class)
-            ->add('save', SubmitType::class);
+            ->add('surname',        TextType::class)
+            ->add('name',           TextType::class)
+            ->add('email',          EmailType::class)
+            ->add('birthDate',      DateType::class, array(
+                'widget'        => 'choice',
+                'years'         => range(1940, 2005)
+            ))
+            ->add('group',         EntityType::class, array(
+                'class'         => 'LexikTestBundle:Group_name',
+                'choice_label'  => 'name'
+            ))
+            ->add('save',        SubmitType::class)
+        ;
     }
     
     /**

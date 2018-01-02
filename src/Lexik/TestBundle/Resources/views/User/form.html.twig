@@ -1,0 +1,47 @@
+{{ form_start(formAddUser, {'attr': {'class' : 'form-horizontal'}}) }}
+{{ form_errors(formAddUser) }}
+{% form_theme formAddUser 'Form/updated_bootstrap_3_horizontal_layout.html.twig' %}
+
+<div class="form-group">
+    {{ form_label(formAddUser.surname, "Nom") }} 
+    {{ form_errors(formAddUser.surname) }}
+    <div class="col-sm-7">
+        {{ form_widget(formAddUser.surname, {'attr': {'class': 'form-control'}}) }}
+    </div>   
+</div>
+
+<div class="form-group">
+    {{ form_label(formAddUser.name, "Prénom") }} 
+    {{ form_errors(formAddUser.name) }}
+    <div class="col-sm-7">
+        {{ form_widget(formAddUser.name, {'attr': {'class': 'form-control'}}) }}
+    </div>   
+</div>
+
+<div class="form-group">
+    {{ form_label(formAddUser.email, "Email") }} 
+    {{ form_errors(formAddUser.email) }}
+    <div class="col-sm-7">
+        {{ form_widget(formAddUser.email, {'attr': {'class': 'form-control'}}) }}
+    </div>   
+</div>
+
+<div class="form-group">
+    {{ form_label(formAddUser.birthDate, "Date de naissance") }} 
+    {{ form_errors(formAddUser.birthDate) }}
+    <div class="col-sm-7">
+        {{ form_widget(formAddUser.birthDate) }}
+    </div>   
+</div>
+
+<div class="form-group">
+    {{ form_label(formAddUser.group, "Groupe") }} 
+    {{ form_errors(formAddUser.group) }}
+    <div class="col-sm-7">
+        {{ form_widget(formAddUser.group, {'attr': {'class': 'form-control'}}) }}
+    </div>   
+</div>
+
+{{ form_widget(formAddUser.save, {'attr': {'class': 'btn btn-orange'}}) }}
+{{ form_rest(formAddUser) }}
+{{ form_end(formAddUser) }}
