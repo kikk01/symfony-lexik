@@ -42,7 +42,8 @@ class UserController extends Controller
             else
             {                
                 $form = $this->createForm(Group_nameType::class, $group_name);
-                $form->handleRequest($request);
+                
+                $form->handleRequest($request); 
                 if ($form->isValid())
                 {
                     foreach($_POST['lexik_testbundle_group_name']['users'] as $id)
@@ -53,8 +54,8 @@ class UserController extends Controller
                         $em->remove($user);
                     }
                     $em->flush();
-                    $request->getSession()->getFlashbag()->add('info', 'Utilisateurs suprimés.');
-                    return $this->redirectToRoute('lexik_test_home');
+                    /*$request->getSession()->getFlashbag()->add('info', 'Utilisateurs suprimés.');
+                    return $this->redirectToRoute('lexik_test_home');*/
                 } 
             }                    
         }
