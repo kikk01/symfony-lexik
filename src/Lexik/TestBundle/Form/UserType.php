@@ -30,7 +30,7 @@ class UserType extends AbstractType
                 'class'         => 'LexikTestBundle:Group_name',
                 'choice_label'  => 'name'
             ))
-            ->add('save',        SubmitType::class)
+            ->add('Valider',        SubmitType::class)
         ;
     }
     
@@ -51,6 +51,4 @@ class UserType extends AbstractType
     {
         return 'lexik_testbundle_user';
     }
-
-
 }

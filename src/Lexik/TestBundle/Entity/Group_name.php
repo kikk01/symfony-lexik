@@ -30,6 +30,7 @@ class Group_name
 
     /**
      * @ORM\OneToMany(targetEntity="Lexik\TestBundle\Entity\User", mappedBy="group")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $users;
 
@@ -108,6 +109,7 @@ class Group_name
      */
     public function getUsers()
     {
+        
         return $this->users;
     }
 }

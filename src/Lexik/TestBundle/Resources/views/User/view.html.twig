@@ -82,6 +82,17 @@
             {% endfor %}
         </tbody>
     </table>
+    <button class="btn btn-orange" data-toggle="modal" href="#supUsers">Supprimer plusieurs utilisateurs</button>
+    <div class="modal fade" id="supUsers">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header"><h2>Sélectionner les utilisateurs à supprimer</h2></div>
+                <div class="modal-body">
+                    {{ include('LexikTestBundle:User:formDeleteUsers.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 

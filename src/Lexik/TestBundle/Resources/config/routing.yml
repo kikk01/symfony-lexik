@@ -8,3 +8,4 @@ lexik_test_delete:
         _controller: LexikTestBundle:User:delete
     requirements:
         id: \d+
+

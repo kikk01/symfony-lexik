@@ -11,8 +11,7 @@ namespace Lexik\TestBundle\Repository;
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
     public function getClientSearch($clientSearch)
-    {
-        
+    {  
         $qb = $this
             ->createQueryBuilder('u')
             ->innerJoin('u.group', 'g')
@@ -20,11 +19,24 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
             ->where('g.name = :name')
             ->orWhere('u.surname = :name')
             ->setParameter(':name', $clientSearch)
+            ->orderby('g.name')
         ;
         return $qb
             ->getQuery()
             ->getResult()
         ;
-
+    }
+    public function myFindAll()
+    {  
+        $qb = $this
+            ->createQueryBuilder('u')
+            ->innerJoin('u.group', 'g')
+            ->addSelect('g')
+            ->orderby('g.name')
+        ;
+        return $qb
+            ->getQuery()
+            ->getResult()
+        ;
     }
 }
